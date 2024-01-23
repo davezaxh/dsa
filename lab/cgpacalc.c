@@ -4,6 +4,7 @@ void main(){
 
     int credits[5],marks[5],grade[5];
     int n, i;
+    float sumone = 0.0, sumtwo = 0.0;
 
     printf("Enter number of subjects: ");
     scanf("%d",&n);
@@ -39,4 +40,11 @@ void main(){
             grade[i]=0;
         }
     }
+
+    for(i=0 ;i<n ;i++){
+        sumone = sumone + credits[i];
+        sumtwo = sumtwo + grade[i];
+    }
+
+    printf("SGPA: %f\n", (sumtwo/sumone));
 }

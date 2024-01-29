@@ -34,7 +34,7 @@ void main(){
                 scanf("%d",&ele);
 
                 for(i = len - 1; i > pos; i--){
-                    arr[i] = arr[i-1];
+                    arr[i-1] = arr[i];
                 }
                 arr[pos-1] = ele;
                 len++;

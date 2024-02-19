@@ -33,8 +33,8 @@ void main(){
                 printf("Enter element to enter: ");
                 scanf("%d",&ele);
 
-                for(i = len - 1; i > pos; i--){
-                    arr[i-1] = arr[i];
+                for(i = len - 1; i >= pos-1; i--){
+                    arr[i+1] = arr[i];
                 }
                 arr[pos-1] = ele;
                 len++;

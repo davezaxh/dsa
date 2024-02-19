@@ -3,10 +3,7 @@
 #include <stdio.h>
 
 struct student{
-    char name[20]; for(i = n - 1; i >= pos; i--){
-                    s[i] = s[i-1];
-                }   
-                n++;
+    char name[20]; 
     int roll;
     float marks;
 }; 

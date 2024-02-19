@@ -33,7 +33,7 @@ void main(){
                 printf("Enter element to enter: ");
                 scanf("%d",&ele);
 
-                for(i = len - 1; i >= pos-1; i--){
+                for(i = len - 1; i >= pos - 1; i--){
                     arr[i+1] = arr[i];
                 }
                 arr[pos-1] = ele;
@@ -48,7 +48,7 @@ void main(){
         case 3: printf("Enter the position to delete the element: ");
                 scanf("%d", &pos);
 
-                for(i = pos; i < len ; i++){
+                for(i = pos - 1; i < len - 1 ; i++){
                     arr[i] = arr[i+1];
                 }
                 len --;

@@ -6,7 +6,7 @@
 struct nodes{
     int data; 
     struct nodes *add;
-}
+};
 
 void main(){
     int i, n;
@@ -20,7 +20,7 @@ void main(){
         if(i==0){
             p = (int *)malloc(sizeof(struct nodes));
             printf("Enter the data: ");
-            scanf("%d", &p->data);
+            scanf("%d", &(p->data));
             p->add = NULL;
             head = p;
         }
@@ -29,7 +29,7 @@ void main(){
             p->add = (int *)malloc(sizeof(struct nodes));
             p = p->add;
             printf("Enter the data: ");
-            scanf("%d", p->data);
+            scanf("%d", &(p->data));
             p->add = NULL;
         }
     }

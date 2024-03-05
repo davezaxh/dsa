@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 void main(){
-    int arr[10], i, n;
-    float sum = 0;
+    int i, n;
+    float sum = 0, arr[10];
     float avg;
 
     //accepting number of array elements
@@ -13,7 +13,7 @@ void main(){
     //accepting the array elements
     printf("Enter elements of the array: ");
     for(i = 0; i < n; i++){
-        scanf("%d", &arr[i]);
+        scanf("%f", &arr[i]);
     }
 
     //finding the sum of array elements

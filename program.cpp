@@ -15,21 +15,22 @@ class Student {
     Student(int roll, string n) {
         rollNumber = roll;
         name = n;
-    }
+    };
 
     friend class MIT;
 };
 
 class MIT {
     public: 
-        void display(Student& stud){
+        void display(Student &stud){
             cout << "Roll Number: " << stud.rollNumber << endl;
             cout << "Name: " << stud.name << endl;
         }
-}
+};
+
 int main() {
-    Student obj;
+    Student stud(123, "John"); // Provide arguments when creating the Student object
     MIT obj1;
-    obj1.display(obj);
+    obj1.display(stud);
     return 0;
 }

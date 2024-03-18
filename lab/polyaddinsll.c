@@ -46,4 +46,5 @@ void main(){
         }
     }// for loop ends here
     display(head1);
+    printf("\n");
 } //main() ends here

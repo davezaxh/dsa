@@ -9,7 +9,7 @@ typedef struct node{
     struct node *next;
 }eq;
 
-void display(eq *q){
+char display(eq *q){
     while(q!=NULL){
         printf("%dx^%d + ", q->coeff, q->exp);
         q = q->next;

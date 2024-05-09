@@ -1,50 +1,137 @@
-// To implement polynominal addition using singly linked list
+#include<stdio.h>
+#include<stdlib.h>
 
-#include <stdio.h>
-#include <stdlib.h>
+typedef struct node
+{
+    int coef,pow;
+    struct node *add;
+}sn;
 
-typedef struct node{
-    int coeff;
-    int exp;
-    struct node *next;
-}eq;
+void display(sn *b);
 
-char display(eq *q){
-    while(q!=NULL){
-        printf("%dx^%d + ", q->coeff, q->exp);
-        q = q->next;
-    }// function to display the polynomial equation 
-}
-
-void main(){
-    eq *head1, *head2, *head3, *p;
-    int n1,n2,i;
-    printf("Enter the number of terms in the first polynomial: ");
-    scanf("%d", &n1);
-    
-    printf("Enter the elements in the descending order of power");
-    for(i=0;i<n1;i++){
-
-        if(i==0){
-            p = (eq *)malloc(sizeof(eq));
-            printf("\nEnter the coefficient: ");
-            scanf("%d", &p->coeff);
-            printf("Enter the exponent: ");
-            scanf("%d", &p->exp);
-            p->next = NULL;
-            head1 = p;
-        } 
-
-        else{
-            p->next = (eq *)malloc(sizeof(eq));
-            p = p->next;
-            printf("Enter the coefficient: ");
-            scanf("%d", &p->coeff);
-            printf("Enter the exponent: ");
-            scanf("%d", &p->exp);
-            p->next = NULL;
+int main()
+{
+    sn *h1,*h2,*h3,*p,*q,*r;
+    int i,m,n;
+    // 1st polynomial
+    printf("enter the number of terms in polynomial 1 : ");
+    scanf("%d",&m);
+    for(i=0;i<m;i++)
+    {
+        if(i==0)
+        {
+            p=(sn*)malloc(sizeof(sn));
+            printf("Enter the coefficent : ");
+            scanf("%d",&p->coef);
+            printf("Enter the power : ");
+            scanf("%d",&p->pow);
+            p->add=NULL;
+            h1=p;
         }
-    }// for loop ends here
-    display(head1);
+        else
+        {
+            p->add =(sn*)malloc(sizeof(sn));
+            p=p->add;
+            printf("Enter the coefficent : ");
+            scanf("%d",&p->coef);
+            printf("Enter the power : ");
+            scanf("%d",&p->pow);
+            p->add=NULL;
+        }
+    }
+    // 2nd polynomial
+    printf("enter the number of terms in polynomial 2 : ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        if(i==0)
+        {
+            q=(sn*)malloc(sizeof(sn));
+            printf("Enter the coefficent : ");
+            scanf("%d",&q->coef);
+            printf("Enter the power : ");
+            scanf("%d",&q->pow);
+            q->add=NULL;
+            h2=q;
+        }
+        else
+        {
+            q->add =(sn*)malloc(sizeof(sn));
+            q=q->add;
+            printf("Enter the coefficent : ");
+            scanf("%d",&q->coef);
+            printf("Enter the power : ");
+            scanf("%d",&q->pow);
+            q->add=NULL;
+        }
+    }
+    printf("1st polynomial is: ");
+    display(h1);
     printf("\n");
-} //main() ends here
+    printf("2nd polynomial is: ");
+    display(h2);
+    p=h1;
+    q=h2;
+    r=NULL;
+    while(p!=NULL && q!=NULL)
+    {
+        if(r==NULL)
+        {
+            r=(sn*)malloc(sizeof(sn));
+            h3=r;
+        }
+        else
+        {
+            r->add=(sn*)malloc(sizeof(sn));
+            r=r->add;
+        }
+        r->add=NULL;
+        if(p->pow==q->pow)
+        {
+            r->pow=q->pow;
+            r->coef=p->coef + q->coef;
+            p=p->add;
+            q=q->add;
+        }
+        else
+        {
+            if(p->pow > q->pow)
+            {
+                r->pow = p->pow;
+                r->coef=p->coef;
+                p=p->add;
+            }
+            else
+            {
+                r->pow = q->pow;
+                r->coef = q->coef;
+                q=q->add;
+            }
+        }//outer if else end
+    }//while ends
+    
+    if(p!=NULL)
+    {
+        r->add=p;
+    }
+
+    if(q!=NULL)
+    {
+        r->add=q;
+    }
+
+    printf("\n Result of polynomial is: ");
+    display(h3);
+    }//main() ends
+    void display(sn *b)
+    {
+        while(b!=NULL)
+        {
+            if(b->coef > 0)
+            {
+                printf("+");
+            }
+            printf("%dx^%d",b->coef,b->pow);
+            b=b->add;
+        }
+}

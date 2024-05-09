@@ -14,8 +14,7 @@ void push (int p){
 }
 
 int pop(){
-    int z;
-    z = st.a[st.top];
+    int z = st.a[st.top];
     st.top--;
     return z;
 }

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 
 #define TRUE 1
@@ -12,7 +11,7 @@ struct btreenode
 	struct btreenode *rightchild ;
 } ;
 
-void insert ( struct btreenode **sr, int ) ;
+void insert ( struct btreenode **sr, int num ) ;
 void inorder ( struct btreenode *s ) ;
 void preorder(struct btreenode *s);
 void postorder(struct btreenode *s);
@@ -80,7 +79,7 @@ void insert ( struct btreenode **sr, int num )
 
 	if ( *sr == NULL )
 	{
-		*sr =(btreenode*) malloc ( sizeof ( struct btreenode ) ) ;
+		*sr =(struct btreenode*) malloc ( sizeof ( struct btreenode ) ) ;
 
 		( *sr ) -> leftchild = NULL ;
 		( *sr ) -> data = num ;

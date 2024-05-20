@@ -6,6 +6,7 @@ struct que
     int a[5];
     int f,r;
 } q;
+
 void enque(int p);
 int deque();
 void display();

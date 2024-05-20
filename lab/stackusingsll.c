@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct node
 {
     int data;
@@ -18,50 +19,50 @@ void main()
     {
         printf("Enter your choice:\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter your choice: ");
         scanf("%d", &ch);
-    switch(ch)
-    {
-        case 1:
-            if((struct node*)malloc(sizeof(struct node))==NULL)
-            {
-                printf("Stack is full\n");
-            }
-            else
-            {
-                printf("Enter the element to be pushed: ");
-                scanf("%d", &x);
-                push(x);
-            }
-            break;
+        switch(ch)
+        {
+            case 1:
+                if((struct node*)malloc(sizeof(struct node))==NULL)
+                {
+                    printf("Stack is full\n");
+                }
+                else
+                {
+                    printf("Enter the element to be pushed: ");
+                    scanf("%d", &x);
+                    push(x);
+                }
+                break;
 
-        case 2:
-            if(top == NULL)
-            {
-                printf("Stack is empty\n");
-            }
-            else
-            {
-                y = pop();
-                printf("Popped element is: %d\n", y);
-            }
-            break;
+            case 2:
+                if(top == NULL)
+                {
+                    printf("Stack is empty\n");
+                }
+                else
+                {
+                    y = pop();
+                    printf("Popped element is: %d\n", y);
+                }
+                break;
 
-        case 3:
-            if(top == NULL)
-            {
-                printf("Stack is empty\n");
-            }
-            else
-            {
-                printf("The elements in the stack are: ");
-                print();
-                printf("\n");
-            }
-            break;
+            case 3:
+                if(top == NULL)
+                {
+                    printf("Stack is empty\n");
+                }
+                else
+                {
+                    printf("The elements in the stack are: ");
+                    print();
+                    printf("\n");
+                }
+                break;
 
-        case 4: exit(0);
+            case 4: exit(0);
 
-        default: printf("\nEnter a valid choice!!\n");
-            break;
+            default: printf("\nEnter a valid choice!!\n");
+                break;
         }
     }
 }

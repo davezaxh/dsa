@@ -22,7 +22,7 @@ int main()
     int x,i,op1,op2,d;
     top=-1,i=0;
 
-    printf("Enter postfix expression:");
+    printf("Enter postfix expression: ");
     gets(exp);
 
     while(exp[i]!='\0')
@@ -30,7 +30,7 @@ int main()
         d=isalpha(exp[i]);
         
         if(d!=0){
-            printf("Enter value of %c:",exp[i]);
+            printf("Enter value of %c:  ",exp[i]);
             scanf("%d",&x);
             push(x);
             }
@@ -59,6 +59,6 @@ int main()
         }
         i++;
     }
-    printf("Result: %d",pop());
+    printf("Result: %d\n",pop());
     return 0;
 }

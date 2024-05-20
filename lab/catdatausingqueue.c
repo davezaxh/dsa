@@ -46,4 +46,4 @@ int main()
         printf("%d ",q2.a[i]);
     }
     printf("\n");
-}//main enda here
+}//main ends here
